@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curd</title>
+    <style>
+      #box {
+        margin-left: 5rem;
+        padding: 2rem;
+        width: 40%;
+        height: 30rem;
+        border: 2px solid black;
+      }
+      input {
+        width: 20rem;
+        height: 3rem;
+      }
+      label {
+        font-weight: bolder;
+      }
+      button {
+        margin-left: 5rem;
+
+        height: 2rem;
+        width: 7rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <form>
+        <i class="fa fa-user"></i>
+        <label for="">User Name</label>
+        <input id="t1" type="text" /><br /><br />
+        <label for="">User id</label>
+        <input id="t2" type="text" /><br /><br />
+        <i class="fa fa-user"></i><label for="">password</label>
+        <input id="t3" type="text" />
+        <br /><br />
+        <i class="fa fa-user"></i><label for="">Address</label>
+        <input id="t4" type="textarea" />
+        <br /><br />
+        <i class="fa fa-user"></i><label for="">PinCode</label>
+        <input id="t5" type="number" />
+        <br /><br />
+
+        <input type="button" id="btn" value="SUBMIT" />
+      </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      $("#btn").click(function () {
+        // alert("vghghg");
+        var a = $("#t1").val();
+        var b = $("#t2").val();
+        var c = $("#t3").val();
+        var e = $("#t4").val();
+        var d = $("#t5").val();
+        // console.log(a + b + c + d);
+        $.ajax({
+          url: "form.py",
+          method: "post",
+          data: {
+            t1: "insert",
+            x1: a,
+            x2: b,
+            x3: c,
+            x4: d,
+          },
+          success: function (khushi) {
+            alert(khushi);
+          },
+        });
+      });
+
+      // $("#btn").click(function () {
+      //   flag = true;
+      //   flchk("#t1");
+      //   flchk("#t2");
+      //   flchk("#t3");
+      //   flchk("#t4");
+      //   flchk("#t5");
+      //   flchk("#t6");
+      //   if (flag) {
+      //     alert(a);
+      //     con = confirm("Do you really want to insert record");
+      //     if (con)
+      //       // alert('jh')
+      //       $.ajax({
+      //         url: "form.py",
+      //         method: "post",
+      //         data: {
+      //           cond: "ent",
+      //           t1: $("#t1").val().trim(),
+      //           t2: $("#t2").val().trim(),
+      //           t3: $("#t3").val().trim(),
+      //           t4: $("#t4").val().trim(),
+      //           t5: $("#t5").val().trim(),
+      //           t6: $(".t6").val().trim(),
+      //         },
+      //         success: function (data) {
+      //           alert(data);
+      // console.log(data)
+      //         },
+      //       });
+      //   } else alert("fill all empty field");
+      // });
+      // ======================================
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>search</title>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        username<input type="text" id="a1" /><br />
+        password<input type="text" id="a2" /><br />
+        <input type="button" value="login" id="login" />
+      </fieldset>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      $("#login").click(function () {
+        $.ajax({
+          url: "form.py",
+          method: "post",
+          data: {
+            t1: "search",
+            x1: $("#a1").val(),
+            x2: $("#a2").val(),
+          },
+          success: function (raja) {
+            alert(raja);
+            console.log(raja);
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
