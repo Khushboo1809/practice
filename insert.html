@@ -6,14 +6,15 @@
     <title>Curd</title>
     <style>
       #box {
-        margin-left: 5rem;
-        padding: 2rem;
-        width: 40%;
-        height: 30rem;
+        margin-left: 9rem;
+        padding-left: 9rem;
+        padding-top: 4rem;
+        width: 60%;
+        height: 40rem;
         border: 2px solid black;
       }
       input {
-        width: 20rem;
+        width: 15rem;
         height: 3rem;
       }
       label {
@@ -24,6 +25,15 @@
 
         height: 2rem;
         width: 7rem;
+      }
+      table,
+      thead,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 50rem;
+        height: 2rem;
       }
     </style>
   </head>
@@ -44,19 +54,44 @@
         <i class="fa fa-user"></i><label for="">PinCode</label>
         <input id="t5" type="number" />
         <br /><br />
-
-        <input type="button" id="btn" value="SUBMIT" />
+        <input type="button" id="insertbtn" value="SUBMIT" />
       </form>
+      <br />
+      <input type="text" id="username" placeholder="username" />
+      <input type="text" id="userid" placeholder="userid" />
+      <input type="button" value="search" id="schbtn" /><br /><br />
+    </div>
+    <div>
+      <input type="button" value="update" id="upbtn" />
+      <input type="button" value="delete" id="debtn" />
+      <div id="div">
+        <!-- <table>
+          <thead>
+            <th>User Name</th>
+            <th>User ID</th>
+            <th>Password</th>
+            <th>Address</th>
+            <th>Pincode</th>
+          </thead>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table> -->
+      </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script>
-      $("#btn").click(function () {
+      $("#insertbtn").click(function () {
         // alert("vghghg");
         var a = $("#t1").val();
         var b = $("#t2").val();
         var c = $("#t3").val();
-        var e = $("#t4").val();
-        var d = $("#t5").val();
+        var d = $("#t4").val();
+        var e = $("#t5").val();
         // console.log(a + b + c + d);
         $.ajax({
           url: "form.py",
@@ -67,46 +102,31 @@
             x2: b,
             x3: c,
             x4: d,
+            x5: e,
           },
           success: function (khushi) {
             alert(khushi);
           },
         });
       });
-
-      // $("#btn").click(function () {
-      //   flag = true;
-      //   flchk("#t1");
-      //   flchk("#t2");
-      //   flchk("#t3");
-      //   flchk("#t4");
-      //   flchk("#t5");
-      //   flchk("#t6");
-      //   if (flag) {
-      //     alert(a);
-      //     con = confirm("Do you really want to insert record");
-      //     if (con)
-      //       // alert('jh')
-      //       $.ajax({
-      //         url: "form.py",
-      //         method: "post",
-      //         data: {
-      //           cond: "ent",
-      //           t1: $("#t1").val().trim(),
-      //           t2: $("#t2").val().trim(),
-      //           t3: $("#t3").val().trim(),
-      //           t4: $("#t4").val().trim(),
-      //           t5: $("#t5").val().trim(),
-      //           t6: $(".t6").val().trim(),
-      //         },
-      //         success: function (data) {
-      //           alert(data);
-      // console.log(data)
-      //         },
-      //       });
-      //   } else alert("fill all empty field");
-      // });
-      // ======================================
+      $("#schbtn").click(function () {
+        var a = $("#username").val().trim();
+        var b = $("#userid").val().trim();
+        // alert("fgdg");
+        $.ajax({
+          url: "form.py",
+          method: "post",
+          data: {
+            t1: "search",
+            x1: a,
+            x2: b,
+          },
+          success: function (data) {
+            alert(data);
+            $("#div").html(data);
+          },
+        });
+      });
     </script>
   </body>
 </html>

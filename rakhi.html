@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Admission Form</title>
+    <style>
+        html {
+            font-size: 10px;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        #main {
+            width: 100%;
+            height: auto;
+            overflow-x: hidden;
+        }
+
+        #d1 {
+            height: 7rem;
+            background-color: rgb(227, 172, 119);
+        }
+
+        #hm {
+            height: 7rem;
+            width: auto;
+            display: flex;
+            align-items: center;
+            float: left;
+        }
+
+        #d1 a {
+            text-decoration: none;
+            margin: 3rem;
+        }
+
+        #tog {
+            margin: 1.5rem 3rem;
+            height: 4rem;
+            width: 20rem;
+            display: flex;
+            float: right;
+            position: relative;
+        }
+
+        #togx {
+            position: absolute;
+            height: 4rem;
+            width: 10rem;
+            background-color: white;
+            transition: .3s;
+            position: absolute;
+            /* margin-left: 10rem; */
+            border-radius: 1rem 0 0 1rem;
+            /* box-shadow: 2px 2px 10px rgb(249, 65, 237); */
+        }
+
+        #tog p {
+            margin: 0;
+            position: relative;
+            height: 100%;
+            width: 50%;
+            cursor: pointer;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+            font-size: 2rem;
+        }
+
+        #b1 {
+            border-radius: 1rem 0 0 1rem;
+        }
+
+        #b2 {
+            border-radius: 0 1rem 1rem 0;
+        }
+
+        #body {
+            width: 200%;
+            transition: .5s;
+        }
+
+        #ent,
+        #ser {
+            height: auto;
+            width: 50%;
+            float: left;
+        }
+
+        #d2 {
+            background-color: rgb(222, 227, 125);
+            display: flex;
+            height: 5rem;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        #table1,
+        #table2 {
+            width: 95%;
+            margin: 3rem 2.5%;
+            border-collapse: collapse;
+        }
+
+        #table1 td,
+        #table2 td {
+            height: 8rem;
+            text-align: center;
+        }
+
+        #table1 #td1 {
+            width: 43%;
+        }
+
+        #table1 #td2 {
+            width: 14%;
+        }
+
+        select {
+            height: 4.5rem;
+            width: 91%;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        #t6,
+        #t5,
+        #t7,
+        #t8,
+        #t0,
+        #t9,
+        #from,
+        #to,
+        #t11,
+        #t12,
+        #t13 {
+            width: 90%;
+            height: 4rem;
+            padding-left: 1rem;
+            font-size: 1.8rem;
+        }
+
+        #from,
+        #to {
+            width: 41%;
+            font-size: 1.5rem;
+        }
+
+        #to {
+            margin-left: 5%;
+        }
+
+        #t11,
+        #t1 {
+            width: 42.5%;
+            font-size: 1.5rem;
+        }
+
+        #t11 {
+            margin-left: 5%;
+        }
+
+        #t12,
+        #t2,
+        #t13 {
+            width: 25.5%;
+            font-size: 1.5rem;
+        }
+
+        #t13,
+        #t2 {
+            margin-left: 5%;
+        }
+
+        #l5,
+        #l6,
+        #l7,
+        #l8,
+        #l0,
+        #l9,
+        #lf,
+        #lt {
+            position: absolute;
+            font-size: 1.8rem;
+            margin: -1rem 4rem;
+            background-color: white;
+        }
+
+        /* #lf,#lt,.fa-search{
+            display: none;
+        } */
+        #lt {
+            margin-left: 3%;
+        }
+
+        /* #l7{
+            visibility: hidden;
+        } */
+        #ll1,
+        #ll2,
+        #ll3,
+        #ll4,
+        #ll7 {
+            color: red;
+            font-size: 1.6rem;
+        }
+
+        #b3,
+        #b4,
+        #b5,
+        #b6,
+        #b7,
+        #b8,
+        #b9,
+        #b10 {
+            font-weight: bolder;
+            font-size: 1.7rem;
+            height: 4rem;
+            width: 13rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            background-color: green;
+            color: white;
+            border: none;
+        }
+
+        #b7,
+        #b8,
+        #b9,
+        #b10 {
+            margin-right: 3rem;
+        }
+
+        #d4 {
+            text-align: right;
+        }
+
+        #b7 {
+            background: blue;
+        }
+
+        #b8 {
+            background: rgb(191, 0, 255);
+        }
+
+        #b10 {
+            background: red;
+        }
+
+        .fa-search {
+            position: absolute;
+            font-size: 1.7rem;
+            color: white;
+            margin: 1rem 14%;
+        }
+
+        #b4,
+        #b6 {
+            background: red;
+            margin-left: 7rem;
+        }
+
+        #b5 {
+            margin-left: 20%;
+        }
+
+        /* ------------ Service ----------------- */
+        #table2 td {
+            width: 33%;
+        }
+
+        #table2 #sr {
+            text-align: left;
+        }
+
+        #d5 {
+            height: 30rem;
+            overflow-y: auto;
+            margin-top: 3rem;
+        }
+
+        #table3 {
+            width: 90%;
+            margin-left: 5%;
+            text-align: center;
+            font-size: 1.8rem;
+            border-collapse: collapse;
+        }
+
+        #table3 th,
+        #table3 td {
+            height: 3rem;
+            border: .1rem solid black;
+        }
+
+        #table3 th {
+            position: sticky;
+            top: 0;
+            background-color: antiquewhite;
+        }
+
+
+        #table3 .sn {
+            display: none;
+        }
+
+        #table3 input {
+            border: none;
+            outline: none;
+        }
+
+        #sa1 {
+            height: 100%;
+            width: 100%;
+            border: none;
+            outline: none;
+        }
+
+        td label {
+            visibility: hidden;
+        }
+
+        /* #l5,#l9,#l7,#l9{
+                visibility: hidden;
+            } */
+        #text {
+            height: 3rem;
+            width: 50%;
+            padding-left: 2rem;
+            font-size: 2rem;
+        }
+
+        #text1 {
+            height: 3rem;
+            width: 50%;
+            padding-left: 2rem;
+            font-size: 2rem;
+        }
+
+        .img {
+            border: 2px solid black;
+            height: 10rem;
+            width: 10rem;
+            margin: auto;
+            /* margin-top: -5rem; */
+        }
+
+        #pict {
+            height: 100%;
+            width: 100%;
+            min-width: 50%;
+            min-height: 50%;
+        }
+
+        @media (max-width:998px) {
+            html {
+                font-size: 55%;
+            }
+        }
+
+        @media (max-width:768px) {
+
+            html {
+                font-size: 45%;
+            }
+
+            #table1 #td1 {
+                width: 100%;
+            }
+
+            #table1 #td2 {
+                display: none;
+            }
+
+            #table3 th {
+                display: none;
+            }
+
+            #table1 td,
+            #table2 td,
+            #table3 td {
+                display: block;
+            }
+
+            #table2 td {
+                width: 100%;
+            }
+
+            #lt {
+                margin-left: 9%;
+            }
+
+            #d4 {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+
+            #b5 {
+                margin-left: 0;
+            }
+
+            #table2 #sr {
+                text-align: center;
+            }
+
+            .fa-search {
+                margin: 1rem 2rem;
+            }
+
+            #d5 {
+                height: auto;
+            }
+
+            #table3 .sn {
+                display: block;
+                background-color: antiquewhite;
+            }
+
+            #table3 td {
+                text-align: right;
+            }
+
+            #table3 td::before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                color: black;
+            }
+
+            #sa1 {
+                width: 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="d1">
+            <div id="hm"><a href="#" id="home"><font size="4rem">&#x1F3E0; &nbsp; HOME</font></a></div>
+            <div id="tog">
+                <div id="togx"></div>
+                <p id="b1"><b>Entry</b></p>
+                <p id="b2"><b>Service</b></p>
+            </div>
+        </div>
+        <div id="body">
+            <div id="ent">
+                <div id="d2"><b></b></div>
+                <form>
+                    <table id="table1">
+                        <tr>
+                            <td id="td1"><label id="l5">Form No</label><input type="text" id="t5" placeholder="Form No"
+                                    oninput="legend('#l5','#t5')" onfocus="fgchk('#t5')" onfocusout=" flchk('#t5')">
+                                <span id="kkk" style="color:red;font-size:2rem;"></span>
+                            </td>
+                            <td id="td1"><label id="l6">Date</label><input type="date" id="t6" class="date"
+                                    placeholder="Date"></td>
+                        </tr>
+                        <tr>
+                            <td><label id="l0">Registration No</label><input type="text" id="t0"
+                                    placeholder="Registration No" onfocus="fgchk('#t0')" onfocusout=" flchk('#t0')">
+                                <span class="nnn"><br></span>
+                            </td>
+
+                            <td><label id="l9">Prev. Course</label><input type="text" id="t9" placeholder="Prev. Course"
+                                    oninput="legend('#l9','#t9')" onfocus="fgchk('#t9')" onfocusout=" flchk('#t9')">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label id="l7">Student Name</label><input type="text"
+                                    style="text-transform:capitalize ;" id="t7" placeholder="Student Name"
+                                    oninput="lagend('#l7','#t7')"><br><label id="ll7" onfocus="fgchk('#t7')"
+                                    onfocusout=" flchk('#t7')"></label>
+                                <span id="ppp" style="color: red;font-size: 2rem;"></span>
+                            </td>
+
+                            <td id="td1"><label id="pic"></label><input type="file" id="xyz" placeholder=""
+                                    accept="image/*">
+                                <div class="img">
+                                    <img src="#" id="pict">
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label id="l9">Course Applying</label><select style="height: 4.5rem;" id="t1"
+                                    onfocusout="ch2('#t1','#ll1')" onfocus="ch3('#t1','#ll1')">
+                                    <option value="null" selected disabled>----- Select Any One -----</option>
+
+
+                                </select><label id="l9">Selected Course</label><input type="text"
+                                    placeholder="Selected Course" id="t11" readonly><br>
+                                <span id="ll1"></span>
+                            </td>
+
+                            <td><label id="l9">Course Fee</label><input type="text" id="t9" class="tt"
+                                    placeholder="Course Fee" oninput="legend('#l9','#t9')" onfocus="fgchk('.tt')"
+                                    onfocusout=" flchk('.tt')"></td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="button" value="&#x2713; Submit" id="b3"><input type="button"
+                                    value="&#x21bb;&nbsp; Reset" id="b4"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div id="ser">
+                <div id="d2"><b></b></div>
+                <table id="table2">
+                    <tr>
+                        <td><label id="l9">Form no</label><input type="text" placeholder="form_no" id="text">
+                        </td>
+                        <td><input type="text" placeholder="Reg_no" id="text1">
+                            <!-- <select id="s2">
+                                <option value="" selected disabled>----- Select Any One -----</option>
+                            </select> -->
+                        </td>
+                        <!-- <td><label id="lf">From</label><input type="date" id="from"><label id="lt">To</label><input
+                                type="date" id="to"></td> -->
+                    </tr>
+                    <tr>
+                        <td id="sr" colspan="2"><i class="fa fa-search" hidden></i><input type="button"
+                                value=" &nbsp; Search" id="b5"><input type="button" value="&#x21bb;&nbsp; Refresh"
+                                id="b6"></td>
+                    </tr>
+                </table>
+                <div id="d3">
+                    <div id="d4">
+                            <input type="button" class="fa" value="&#xf019;&nbsp; Download" id="b7">
+                            <input type="button" class="fa" value="&#xf02f;&nbsp; Print"    id="b8" onclick="window.print()">
+                            <input type="button" class="fa" value="&#xf044;&nbsp; Update"   id="b9">
+                            <input type="button" class="fa" value="&#xf014;&nbsp; Delete"   id="b10">
+                    </div>
+                    <div id="d5">
+                        <!-- <table id="table3">
+                            <tr><th id="sn">Sn</th><th>Form_ no</th><th>Date</th><th>Registration no</th><th>Prev. Course</th><th>Student name</th><th>course_fee</th><th>Check</th><th id="sn"></th></tr>
+                            <tr><td id="sn">1</td><td data-label="form_no">F001</td><td data-label="Date">10/9/2023</td><td data-label="Reg_no">477475487</td><td data-label="Prev.course">math</td><td data-label="stu_name">ram</td><td data-label="course_fee">15000</td><td data-label="Check"><input type="radio" name="a"></td><td class="sn"></td></tr>
+                        </table> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="//cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+    <script>
+        // ====================== Animation ===============================
+        $('#b2').click(function () {
+            // alert('ik')
+            $('#togx').css({ 'left': '10rem', 'border-radius': '0 1rem 1rem 0' });
+            $('#body').css('margin-left', '-100%');
+            $('#lf,#lt,.fa-search').show();
+        })
+        $('#b1').click(function () {
+            $('#togx').css({ 'left': '0rem', 'border-radius': '1rem 0 0 1rem' });
+            $('#body').css('margin-left', '0%');
+            $('#lf,#lt,.fa-search').hide();
+            $('#d3').html('');
+        })
+        // --------------------------------------------------------------------
+// ======================== Mandatory ===========================
+        var flag = true;
+        function ch2(t, l) {
+            a = $(t).val();
+            if (a == null) {
+                $(t).css('border', '2px solid red');
+                $(l).html('Select any One!');
+                flag = false;
+            }
+        }
+        function ch3(t, l) {
+            $(t).css('border', '1px solid black');
+            $(l).html('');
+        }
+        // ------------------- leble legend ----------------------
+        function legend(l, t) {
+            a = $(t).val();
+            if (a.trim() == '')
+                $(l).css('visibility', 'hidden')
+            else
+                $(l).css('visibility', 'visible')
+        }
+        // ====================validation date---------------------------
+        $(document).ready(function () {
+            Tdate()
+        })
+        function Tdate() {
+            var x = new Date();
+            dd = x.getDate();
+            yy = x.getFullYear();
+            mm = x.getMonth() + 1;
+            if (dd < 10) dd = "0" + dd;
+            if (mm < 10) mm = "0" + mm;
+            y = yy + "-" + mm + "-" + dd; //for date format
+            $("#t6").val(y);
+            $("#t6").attr('max', y);
+        }
+        // -------------------------------------------------------
+        function flchk(id) {
+            var k = $(id).val().trim();
+            if (k == '') {
+                if (id == '#t5')
+                    $(id).removeAttr('type')
+                $(id).val('Field Is Mandatory!')
+                $(id).css({ 'color': 'red' })
+                flag = false;
+            }
+        }
+        function fgchk(id) {
+            var k = $(id).val();
+            if (k.trim() == 'Field Is Mandatory!') {
+                $(id).val('')
+                $(id).css({ 'color': 'black' });
+            }
+        }
+        // =====================================================================
+        $('#t0').on('keypress', function (e) {
+            if ((e.which == 32) && e.target.selectionStart == 0)
+                return false;
+
+            else if (!(e.which >= 48 && e.which <= 57 || e.which == 46)) {
+                $('#nnn').html(' <br>Only Digit allowed')
+                return false;
+            }
+            else if (e.which == 32 && $(this).val().slice(-1) == ' ') {
+                e.preventDefault();
+            }
+            else
+                $('#nnn').html('')
+        });
+        $('#t7').on('keypress', function (e) {
+            if ((e.which == 32) && e.target.selectionStart == 0)
+                return false;
+            else if (!(e.which >= 65 && e.which <= 90 || e.which >= 97 && e.which <= 122 || e.which == 32 || e.which == 46)) {
+                $('#ppp').html('Only Alphabet allowed')
+                return false;
+            }
+            else if ((e.which == 32 && $(this).val().slice(-1) == ' ') || (e.which == 46 && $(this).val().slice(-1) == '.')) {
+                e.preventDefault();
+            }
+            else
+                $('#ppp').html('')
+        });
+        // ==================form no validation-------------------------------
+        $('#t5').on('keypress', function (e) {
+            if ((e.which == 32) && e.target.selectionStart == 0)
+                return false;
+            else if (!(e.which >= 65 && e.which <= 90 || e.which >= 97 && e.which <= 122 || e.which == 32 || e.which == 46 || e.which >= 48 && e.which <= 57)) {
+                $('#kkk').html('<br>Only Alphabet and digit allowed')
+                return false;
+            }
+            else if ((e.which == 32 && $(this).val().slice(-1) == ' ') || (e.which == 46 && $(this).val().slice(-1) == '.')) {
+                e.preventDefault();
+            }
+            else
+                $('#kkk').html('')
+        });
+        // =============== submit button work =================================
+        $('#b3').click(function () {
+            flag = true;
+            flchk('#t5')
+            flchk('#t6')
+            flchk('#t0')
+            flchk('#t9')
+            flchk('#t7')
+            if (flag) {
+                // alert(a)
+                con = confirm("Are you really want to insert record")
+                if (con)
+                    // alert('jh')
+                    $.ajax({
+                        url: 'revision.py',
+                        method: 'post',
+                        data: {
+                            cond: 'ent',
+                            t1: $('#t5').val().trim(),
+                            t2: $('#t6').val().trim(),
+                            t3: $('#t0').val().trim(),
+                            t4: $('#t9').val().trim(),
+                            t5: $('#t7').val().trim(),
+                            t6: $('.tt').val().trim(),
+                            t7: $('#pict').attr('src')
+                        },
+                        success: function (data) {
+                            alert(data)
+                            // console.log(data)
+                        }
+                    })
+            }
+            else
+                alert('fill the all empty')
+        })
+        //------------------------------search table----------------------------------
+        $('#b5').click(function () {
+            // alert('s')
+            var a = $('#text').val().trim()
+            var b = $('#text1').val().trim()
+            // alert(a+b)
+            $.ajax({
+                url: 'revision.py',
+                method: 'post',
+                data: {
+                    cond: 'search',
+                    a1: a,
+                    a2: b
+
+                },
+                success: function (data) {
+                    alert(data)
+                    $('#d5').html(data)
+                }
+            })
+        });
+        $(document).ready(function () {
+            // alert('dfgh')
+            // auto();
+            course('Bca');
+            autoid('bca')
+        })
+        function district(k) {
+            // alert('dxfgh')
+            $.ajax({
+                url: 'entry copy.py',
+                method: 'post',
+                data: {
+                    cond: 'course',
+                    t1: k
+                },
+                success: function (data) {
+                    $('#t1 option[value!="null"]').remove();
+                    $('#t1').html(data);
+                }
+            })
+        }
+        //================= download  table validation =============================
+        $(document).on('click', '#b7', function () {
+            var conf = confirm("Are You Sure want to download this record!")
+            if (conf) {
+                $("#table3").table2excel({
+                    exclude: "#chk,#del,#upd",
+                    filename: "admission.xls"
+                });
+            }
+        });
+        // ==============================  image validation -------------------------------------------
+        $('#xyz').on('change', function (e) {
+            var a = e.target.files[0]
+            if (a) {
+                var reader = new FileReader()
+                reader.onload = function (e) {
+                    $('#pict').attr('src', e.target.result)
+
+                }
+                reader.readAsDataURL(a)
+            }
+        })
+        // --------------------update-----------------------------
+        $(document).on('click', '#upd', function () {
+            var a = $(this).closest('tr').children("td").text().split('  ')
+            var flag = confirm("Are you sure want to update")
+            if (flag)
+                $.ajax({
+                    url: 'revision.py',
+                    method: 'post',
+                    data: {
+                        cond: 'update_table',
+                        s1: a[1],
+                        s2: a[2],
+                        s3: a[3],
+                        s4: a[4],
+                        s5: a[5],
+                        s6: a[6],
+                        s7: a[7]
+                    },
+                    success: function (data) {
+                        alert(data)
+                    }
+                })
+        })
+  // -------------------delete----------------------------
+        $(document).on('click', '#del', function () {
+            alert("dfgh")
+            var a = $(this).closest('tr').children("td").text().split('  ');
+            alert(a[0])
+                var flag = confirm("Are you sure want to delete")
+                if (flag){
+                    $(this).closest('tr').remove();
+                    $.ajax({
+                        url: 'revision.py',
+                        method: 'post',
+                        data: {
+                            cond: 'del_table',
+                            s1: a[1].trim()
+                        },
+                        success: function (data) {
+                            alert(data);
+                        }
+                    })
+            }
+            else
+                alert('Select any row!')
+        })
+    </script>
+</body>
+</html>

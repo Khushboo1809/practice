@@ -28,31 +28,39 @@
     </style>
   </head>
   <body>
-    <form action="">
+    <form>
       <fieldset id="box">
         <select id="b1">
           <option value="">---------select any one-------</option>
-          <option value="">username</option>
-          <option value="">userid</option>
+          <option>username</option>
+          <option>userid</option>
         </select>
-        <input type="text" />
+        <input type="text" id="srctxt" />
         <br /><br />
-        <input type="button" value="search" /><br /><br />
-        <label for="">User Name</label>
-        <input id="t1" type="text" /><br /><br />
-        <i class="fa fa-user"></i><label for="">password</label>
-        <input id="t3" type="text" />
-        <br /><br />
-        <i class="fa fa-user"></i><label for="">Address</label>
-        <input id="t4" type="textarea" />
-        <br /><br />
-        <i class="fa fa-user"></i><label for="">PinCode</label>
-        <input id="t5" type="number" />
-        <br /><br />
-        <input type="button" value="Update" /><br /><br />
+        <input type="button" value="search" id="sch" /><br /><br />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script>
+          $("#sch").click(function () {
+            var a = document.querySelector("#b1").value;
+            // alert(a);
+            var b = $("#srctxt").val();
+            // alert(a + b);
+            $.ajax({
+              url: "form.py",
+              method: "post",
+              data: {
+                t1: "hellosearch",
+                x1: a,
+                x2: b,
+              },
+              success: function (data) {
+                console.log(data);
+              },
+            });
+          });
+        </script>
       </fieldset>
     </form>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script></script>
   </body>
 </html>

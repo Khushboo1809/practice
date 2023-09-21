@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SelfBox</title>
+    <style>
+      #box {
+        border-collapse: collapse;
+        border: 1px solid black;
+        width: 50rem;
+        height: 30rem;
+        margin: 1rem;
+      }
+      #box1,
+      th {
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 50rem;
+        height: 2rem;
+      }
+      #box1 td {
+        border: 1px solid black;
+        width: 50rem;
+        height: 2rem;
+      }
+      tr,
+      td {
+        padding-left: 5rem;
+        border-collapse: collapse;
+      }
+      input {
+        width: 15rem;
+        height: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <table id="box">
+        <tr>
+          <td><label>User Name</label></td>
+          <td><input type="text" /></td>
+        </tr>
+        <tr>
+          <td><label>User Id</label></td>
+          <td><input type="text" /></td>
+        </tr>
+        <tr>
+          <td><label>Password</label></td>
+          <td><input type="Password" /></td>
+        </tr>
+        <tr>
+          <td><label>Address</label></td>
+          <td><input type="text" /></td>
+        </tr>
+        <tr>
+          <td><input type="button" value="submit" id="sub" /></td>
+          <td><input type="button" value="reset" id="reset" /></td>
+        </tr>
+        <tr>
+          <td><input type="text" placeholder="Username" /></td>
+          <td><input type="text" placeholder="Userid" /></td>
+        </tr>
+        <tr>
+          <td><input type="button" value="Search" id="schbtn" /></td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <table id="box1">
+        <thead>
+          <th>User Name</th>
+          <th>User Id</th>
+          <th>Password</th>
+          <th>Address</th>
+        </thead>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
